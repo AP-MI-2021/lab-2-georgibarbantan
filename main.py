@@ -1,12 +1,24 @@
 def is_antipalindrome(n):
+    """
+    verifica daca un numar n este antipalindrom
+    :param n:
+    :return: false daca n nu este antipalindrom si true in caz contrar
+    """
     for j in range (len(n)//2):
         if n[j] == n[len(n)-1-j]:
             return False
     return True
+
 def test_is_antipalindrome():
     assert is_antipalindrome('2783') is True
     assert is_antipalindrome('2773') is False
+
 def get_base_2(n):
+    """
+    functia transforma un numar n din baza 10 in baza 2
+    :param n:
+    :return: numarul in baza 2
+    """
     baza2=''
     n = int(n)
     if n==0:
@@ -15,12 +27,19 @@ def get_base_2(n):
         baza2=baza2+str(n%2)
         n//=2
     return baza2[::-1]
+
 def test_get_base_2():
     assert get_base_2(26)=="11010"
     assert get_base_2(100) == "1100100"
     assert get_base_2(0)=="0"
     assert get_base_2(1)=="1"
+
 def get_base_16_from_2(n):
+    """
+    functia transforma un numar n din baza 2 in baza 16
+    :param n:
+    :return: numarul in baza 16
+    """
     nrb16 = ''
     cop = int (n)
     while cop:
@@ -48,6 +67,7 @@ def get_base_16_from_2(n):
         nrb16 = c + nrb16
         cop = cop//10000
     return nrb16
+
 def test_get_base_16_from_2():
     assert get_base_16_from_2('0111') == '7'
     assert get_base_16_from_2('111000111') == '1C7'
@@ -79,5 +99,6 @@ def main():
             break
         else:
             print('Optiune invalida')
+
 if __name__=='__main__':
     main()
